@@ -27,10 +27,7 @@ function crearTarjeta() {
                             <img class="d-block w-75 mx-auto img-fluid"
                                 src="${camiseta.imagenes[1]}" >
                         </div>
-                        <div id="fotoLateral" class="carousel-item">
-                            <img class="d-block w-75 mx-auto img-fluid"
-                                src="${camiseta.imagenes[2]}" >
-                        </div>
+                        
                     </div>
                     <!-- Flecha anterior -->
                     <button class="carousel-control-prev" type="button" data-bs-target="#carousel-${camiseta.id}"
