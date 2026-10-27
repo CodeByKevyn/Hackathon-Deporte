@@ -3,3 +3,28 @@
     
 }
 
+.container-carrusel-custom {
+    max-width: 800px; 
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.container-carrusel-custom .carousel-inner {
+    height: 350px; 
+    background-color: #f8f9fa;
+}
+
+.container-carrusel-custom .carousel-item img {
+    height: 350px;
+    object-fit: contain; 
+    padding: 20px; 
+}
+
+
+@media (max-width: 576px) {
+    .container-carrusel-custom .carousel-inner,
+    .container-carrusel-custom .carousel-item img {
+        height: 250px; /* Reduce la altura en celulares para mejor flujo móvil */
+    }
+}
