@@ -1,0 +1,43 @@
+/* =========================================================
+   HERO
+   Solo clases que empiecen con .hero
+   ========================================================= */
+
+.hero {
+  min-height: 100vh;           /* ocupa toda la altura de la pantalla */
+  min-height: 100svh;          /* en móvil descuenta la barra del navegador (si lo soporta) */
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background-color: var(--color-texto);   /* color de respaldo mientras carga la imagen */
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),   /* capa oscura para leer el texto */
+    url("https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D");
+  background-size: cover;      /* la imagen cubre todo el hero sin deformarse */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-contenido {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.hero-titulo {
+  font-family: var(--fuente-titulos);
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  margin-bottom: 1.25rem;
+}
+
+.hero-boton {
+  /* colores de la marca para el boton (solo este boton, no todos los .btn-primary) */
+  --bs-btn-bg: var(--color-secundario);
+  --bs-btn-border-color: var(--color-secundario);
+  --bs-btn-hover-bg: #002a70;
+  --bs-btn-hover-border-color: #002a70;
+  --bs-btn-active-bg: #002a70;
+  --bs-btn-active-border-color: #002a70;
+  padding: 0.65rem 2rem;
+  border-radius: var(--radio);
+}
