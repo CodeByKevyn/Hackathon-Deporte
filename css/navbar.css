@@ -1,11 +1,5 @@
 /* =========================================================
    NAVBAR / HEADER
-   Solo clases que empiecen con .navbar
-   Dos piezas flotando sobre la página: tarjeta (izquierda) y carrito (derecha)
-   Se escribe primero para móvil y se ajusta desde 768px (@media al final)
-
-   OJO: .navbar también es una clase de Bootstrap. Este archivo se carga
-   después de Bootstrap, así que lo que escribimos aquí pisa lo suyo.
    ========================================================= */
 
 /* ---------- Contenedor: flota sobre el hero ---------- */
@@ -25,18 +19,18 @@
 
 .navbar-card,
 .navbar-carrito {
-  pointer-events: auto;        /* pero las piezas sí reciben clics */
+  pointer-events: auto;        
   background: var(--color-fondo);
   color: var(--color-texto);
 }
 
 /* ---------- Tarjeta izquierda ---------- */
 .navbar-card {
-  width: max-content;          /* en móvil se ajusta al contenido */
+  width: max-content;          
   padding: 0.5rem;
 }
 
-/* Fila superior: [ logo | hamburguesa ] dentro de una caja con borde */
+
 .navbar-top {
   display: flex;
   border: 2px solid var(--color-texto);
@@ -54,11 +48,11 @@
 
 .navbar-logo img {
   display: block;
-  height: 32px;                /* en móvil: icono a tamaño fijo */
+  height: 32px;                
   width: auto;
 }
 
-/* Botón hamburguesa (solo móvil: lo oculta la clase d-md-none de Bootstrap) */
+/* Botón hamburguesa */
 .navbar-toggle {
   display: grid;
   place-items: center;
@@ -100,7 +94,7 @@
   margin: 1rem 0;
   border: 0;
   border-top: 2px solid var(--color-texto);
-  opacity: 1;                  /* Bootstrap le baja la opacidad al <hr> */
+  opacity: 1;                  
 }
 
 /* ---------- Selector de idioma ---------- */
@@ -111,21 +105,8 @@
   padding-bottom: 0.25rem;
 }
 
-.navbar-lang-btn {
-  padding: 0;
-  background: none;
-  border: 0;
-  font: inherit;
-  color: var(--color-texto-suave);   /* idioma inactivo: gris */
-  cursor: pointer;
-}
 
-.navbar-lang-btn[aria-pressed="true"] {
-  color: var(--color-texto);         /* idioma activo: oscuro */
-  font-weight: 600;
-}
-
-/* ---------- Cuadro derecho (carrito) ---------- */
+/* ---------- Carrito ---------- */
 .navbar-carrito {
   padding: 0.5rem;
 }
@@ -139,7 +120,7 @@
   background: transparent;
   border: 2px solid var(--color-texto);
   color: var(--color-texto);
-  font-size: 1.6rem;           /* tamaño del icono (bootstrap-icons es una fuente) */
+  font-size: 1.6rem;           /* tamaño del icono*/
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -150,7 +131,7 @@
   color: var(--color-fondo);
 }
 
-/* Contador de productos del carrito (carrito.js escribe aqui el numero) */
+/* Contador de productos del carrito */
 .navbar-carrito-contador {
   position: absolute;
   top: -10px;
@@ -167,8 +148,6 @@
 
 /* =========================================================
    DESDE 768px (tablet y escritorio)
-   La fila superior deja de ser una caja con hamburguesa: el logo
-   completo ocupa todo el ancho de la tarjeta.
    ========================================================= */
 @media (min-width: 768px) {
   .navbar {
@@ -194,7 +173,7 @@
   }
 
   .navbar-logo img {
-    width: 100%;                /* en escritorio: el logo ocupa todo el ancho */
+    width: 100%;                
     height: auto;
   }
 

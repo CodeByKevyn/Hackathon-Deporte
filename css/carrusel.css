@@ -1,0 +1,106 @@
+/* =========================================================
+   CARRUSEL DE ESCUDOS
+   Solo clases que empiecen con .carrusel
+   Franja debajo del inicio: flecha - circulos con escudos - flecha
+   ========================================================= */
+
+:root {
+  --carrusel-alto: 120px;      /* alto de la franja; hero.css lo resta para que todo quepa en la pantalla */
+}
+
+.carrusel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: var(--carrusel-alto);
+  padding: 0 0.5rem;
+  background: var(--color-fondo-alt, #f4f5f7);
+  font-family: var(--fuente-texto, inherit);
+}
+
+/* ---------- Pista con los circulos ---------- */
+.carrusel-pista {
+  display: flex;
+  flex: 1;                     /* ocupa todo el espacio entre las dos flechas */
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0.5rem 0.25rem;
+  list-style: none;
+  overflow-x: auto;            /* se desplaza de lado */
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  scrollbar-width: none;       /* oculta la barra de scroll */
+}
+
+.carrusel-pista::-webkit-scrollbar {
+  display: none;
+}
+
+.carrusel-item {
+  flex: 0 0 auto;              /* no se encogen */
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  scroll-snap-align: center;
+}
+
+.carrusel-escudo {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;         /* el escudo no se deforma ni se corta */
+}
+
+/* ---------- Flechas ---------- */
+.carrusel-flecha {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: var(--color-texto, #1a1a1a);
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.carrusel-flecha:hover,
+.carrusel-flecha:focus-visible {
+  color: var(--color-secundario, #003893);
+}
+
+.carrusel-flecha:disabled {
+  opacity: 0.25;               /* al llegar al inicio o al final */
+  cursor: default;
+}
+
+@media (max-width: 575.98px) {
+  :root {
+    --carrusel-alto: 100px;
+  }
+
+  .carrusel-item {
+    width: 64px;
+    height: 64px;
+  }
+
+  .carrusel-pista {
+    gap: 1rem;
+  }
+
+  .carrusel-flecha {
+    width: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carrusel-pista {
+    scroll-behavior: auto;
+  }
+}
