@@ -1,5 +1,6 @@
 //se crea un array vacio que va a funcionar con lo que el cliente va a ir añadiendo al carrito de compras y va eliminando segun quiera
-let bolsa = []
+// Si hay algo guardado en localStorage lo carga; si no hay nada, inicia como arreglo vacío []
+let bolsa = JSON.parse(localStorage.getItem('bolsaCarrito')) || [];
 
 function agregarProducto(id){
     const productoExistente = bolsa.find(camiseta => camiseta.id === id)
@@ -14,6 +15,7 @@ function agregarProducto(id){
 }
 
 function renderizarCarrito() {
+   localStorage.setItem('bolsaCarrito', JSON.stringify(bolsa));
   // capturamos las referencias de los elementos en el HTML
   const contenedorCarrito = document.getElementById('contenedor-carrito');
   const totalCarrito = document.getElementById('total-carrito');
@@ -109,3 +111,8 @@ function eliminarProducto(id) {
   // Volvemos a pintar el carrito
   renderizarCarrito();
 }
+
+// Renderizamos el carrito guardado automáticamente al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+  renderizarCarrito();
+});
