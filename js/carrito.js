@@ -12,3 +12,22 @@ function agregarProducto(id){
     }
 
 }
+
+function renderizarCarrito(){
+    contenedorCarrito = document.getElementById('IDdelhtml')
+    totalCarrito = document.getElementById('iddelhtml')
+    contadorCarrito = document.getElementById('iddelhtml')
+    contenedor.innerHTML = ''
+
+    if(bolsa.length === 0){
+        mensaje = '<p>El carrito esta vacio</p>'
+        totalCarrito = 0;
+        contadorCarrito = 0;
+        return
+    }else{
+        bolsa.forEach(item => {
+            
+    });
+    }
+    
+}
