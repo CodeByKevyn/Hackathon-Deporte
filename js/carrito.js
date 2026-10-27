@@ -1,23 +1,33 @@
-//se crea un array vacio que va a funcionar con lo que el cliente va a ir añadiendo al carrito de compras y va eliminando segun quiera
-// Si hay algo guardado en localStorage lo carga; si no hay nada, inicia como arreglo vacío []
-let bolsa = JSON.parse(localStorage.getItem('bolsaCarrito')) || [];
+let bolsa;
+try {
+  const carritoGuardado = JSON.parse(localStorage.getItem('bolsaCarrito') || '[]');
+  bolsa = Array.isArray(carritoGuardado) ? carritoGuardado : [];
+} catch (error) {
+  console.error('No se pudo cargar el carrito guardado.', error);
+  bolsa = [];
+}
 
-function agregarProducto(id){
-    const productoExistente = bolsa.find(camiseta => camiseta.id === id)
-    if(productoExistente){
-        productoExistente.cantidad = productoExistente.cantidad + 1;
-    }else{
-        const productoEncontrado = productos.find(item => item.id === id)
-        productoEncontrado.cantidad = 1;
-        bolsa.push(productoEncontrado)
-    }
+function agregarProducto(id) {
+  const productoEncontrado = CAMISETAS.find(item => item.id === id);
+  if (!productoEncontrado) {
+    console.error(`No se encontró el producto con id ${id}.`);
+    return;
+  }
 
+  const productoExistente = bolsa.find(item => item.id === id);
+  if (productoExistente) {
+    productoExistente.cantidad++;
+  } else {
+    bolsa.push({ ...productoEncontrado, cantidad: 1 });
+  }
+
+  renderizarCarrito();
 }
 
 function renderizarCarrito() {
    localStorage.setItem('bolsaCarrito', JSON.stringify(bolsa));
   // capturamos las referencias de los elementos en el HTML
-  const contenedorCarrito = document.getElementById('contenedor-carrito');
+  const contenedorCarrito = document.getElementById('lista-carrito');
   const totalCarrito = document.getElementById('total-carrito');
   const contadorCarrito = document.getElementById('contador-carrito');
 
