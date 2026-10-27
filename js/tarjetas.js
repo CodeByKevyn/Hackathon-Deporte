@@ -41,7 +41,7 @@ function crearTarjeta() {
                     </button>
 
                 </div>
-
+                
                 <h3>${camiseta.nombre}</h3>
                 <span class="precio">${formatearPrecio(camiseta.precio)}</span>
                 <p>${camiseta.descripcion}</p>
