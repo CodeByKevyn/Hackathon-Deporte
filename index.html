@@ -11,41 +11,81 @@
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Bebas+Neue?utm_source=chatgpt.com&preview.script=Latn">
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Bebas+Neue?utm_source=chatgpt.com&preview.script=Latn">
 
+    <!-- Tribuna Tricolor: fuentes, iconos y estilos de navbar, inicio y footer -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/marca.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/footer.css">
+
 </head>
 <body class="bg-light">
 
   <!-- BARRA DE NAVEGACIÓN -->
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Logo</a>
-      
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Equipo</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contactenos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Catalogo</a></li>
-        </ul>
-        
-        <!-- Icono de Carrito SVG nativo -->
-        <a href="#" class="text-white position-relative py-2 px-2 d-inline-block" 
-           data-bs-toggle="offcanvas" 
-           data-bs-target="#carritoOffcanvas" 
-           aria-controls="carritoOffcanvas"
-           style="text-decoration: none;">
-          <svg xmlns="http://w3.org" width="24" height="24" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
-            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-          </svg>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="contador-carrito" style="font-size: 0.65rem; padding: 0.25em 0.4em;">
-            0
-          </span>
+  <header id="navbar" class="navbar">
+
+    <!-- Tarjeta izquierda: logo + enlaces + idioma -->
+    <div class="navbar-card">
+
+      <!--logo + boton hamburguesa en celulares-->
+      <div class="navbar-top">
+        <a class="navbar-logo" href="#inicio">
+          <picture>
+            <!-- En movil se muestra solo el icono; desde 768px el logo completo -->
+            <source media="(max-width: 767.98px)" srcset="assets/img/logo/logo-icono.svg">
+            <img src="assets/img/logo/logo-compacto-oscuro.svg" alt="Tribuna Tricolor, ir al inicio">
+          </picture>
         </a>
+
+        <button class="navbar-toggle d-md-none" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbar-menu"
+                aria-controls="navbar-menu" aria-expanded="false" aria-label="Abrir menú">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <!-- Menu: en movil empieza cerrado; desde 768px siempre visible -->
+      <div class="collapse d-md-block" id="navbar-menu">
+        <nav aria-label="Principal">
+          <ul class="navbar-list">
+            <li><a class="navbar-link" href="#catalogo">Catálogo</a></li>
+            <li><a class="navbar-link" href="#nosotros">Nosotros</a></li>
+            <li><a class="navbar-link" href="#marcas">Marcas</a></li>
+          </ul>
+        </nav>
+
+        <hr class="navbar-divider">
+
+        <div class="navbar-lang">
+          <p class="navbar-lang-btn" type="button">Colombia</p>
+        </div>
       </div>
     </div>
-  </nav>
+
+    <!-- Cuadro derecho: carrito (abre el offcanvas #carritoOffcanvas; carrito.js actualiza #contador-carrito) -->
+    <div class="navbar-carrito">
+      <button class="navbar-carrito-btn" type="button"
+              data-bs-toggle="offcanvas" data-bs-target="#carritoOffcanvas"
+              aria-controls="carritoOffcanvas" aria-label="Abrir carrito">
+        <i class="bi bi-cart3" aria-hidden="true"></i>
+        <span class="navbar-carrito-contador" id="contador-carrito">0</span>
+      </button>
+    </div>
+
+  </header>
+
+  <!-- INICIO (HERO) -->
+  <section id="inicio" class="hero">
+    <div class="container text-center">
+      <div class="hero-contenido">
+        <h1 class="hero-titulo">TÍTULO</h1>
+        <a href="#catalogo" class="btn btn-primary hero-boton">Catálogo</a>
+      </div>
+    </div>
+  </section>
 
   <!-- SECCIÓN DEL CARRUSEL ULTRA COMPACTA (Estilos restrictivos integrados) -->
   <section class="my-4 d-flex justify-content-center">
@@ -123,6 +163,54 @@
     </div>
   </div>
 
+
+  <!-- FOOTER -->
+  <footer id="footer" class="footer">
+
+    <!-- Slider infinito con el nombre de la marca: una sola lista.
+         Tiene un número PAR de elementos y se mueve la mitad (-50%): la segunda
+         mitad es idéntica a la primera, así el bucle no se nota. -->
+    <div class="footer-slider" role="img" aria-label="Tribuna Tricolor">
+      <ul class="footer-slider-lista" aria-hidden="true">
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+          <li class="footer-slider-item">Tribuna Tricolor</li>
+      </ul>
+    </div>
+
+    <!-- Información y redes sociales -->
+    <div class="container footer-info">
+      <a class="footer-logo" href="#inicio">
+        <img src="assets/img/logo/logo-compacto-claro.svg" alt="Tribuna Tricolor, ir al inicio">
+      </a>
+
+      <p class="footer-lema">Tu equipo. Tu camiseta. Tu tribuna.</p>
+
+      <ul class="footer-redes" aria-label="Redes sociales">
+        <li><a class="footer-red" href="#" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a></li>
+        <li><a class="footer-red" href="#" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a></li>
+        <li><a class="footer-red" href="#" aria-label="TikTok"><i class="bi bi-tiktok" aria-hidden="true"></i></a></li>
+        <li><a class="footer-red" href="#" aria-label="X"><i class="bi bi-twitter-x" aria-hidden="true"></i></a></li>
+        <li><a class="footer-red" href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a></li>
+      </ul>
+
+      <small class="footer-copy">&copy; 2026 Tribuna Tricolor. Todos los derechos reservados.</small>
+    </div>
+
+  </footer>
 
   <!-- JavaScript de Bootstrap Oficial Corregido v5.3.3 -->
   <script src="https://jsdelivr.net"></script> 

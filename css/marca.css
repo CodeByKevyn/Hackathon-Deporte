@@ -1,0 +1,32 @@
+/* =========================================================
+   MARCA - Tribuna Tricolor
+   Variables de color y tipografia usadas por navbar.css, hero.css y
+   footer.css. Se carga antes que ellos.
+   ========================================================= */
+
+:root {
+  /* Colores de marca (bandera de Colombia) */
+  --color-primario: #fcd116;
+  --color-secundario: #003893;
+  --color-acento: #ce1126;
+
+  /* Neutros */
+  --color-fondo: #ffffff;
+  --color-fondo-alt: #f4f5f7;
+  --color-texto: #1a1a1a;
+  --color-texto-suave: #6c757d;
+
+  /* Tipografia */
+  --fuente-titulos: 'Poppins', sans-serif;
+  --fuente-texto: 'Inter', sans-serif;
+
+  /* Formas */
+  --radio: 12px;
+}
+
+/* La fuente de texto se aplica solo a mis tres secciones (no al body del sitio) */
+.navbar,
+.hero,
+.footer {
+  font-family: var(--fuente-texto);
+}
